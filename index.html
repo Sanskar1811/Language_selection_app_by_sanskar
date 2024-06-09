@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title> Languages Selection Application by Sanskar </title>
+	<style>
+		* { font-size : 40px ; }
+		body { background-color : #6FF7CC ; }
+		h1 { background-color : #F7756F ; color : white ; border-radius : 28%; width : 650px ; }
+		input[type = "checkbox"] { width : 5% ;height : 0.5em; }
+	</style> 
+</head>
+<body>
+<center>
+<h1> Languages Selection Application </h1>
+	<form onsubmit = "show()">
+		<input type = "text"  placeholder = "Enter Your Name"  id = "name"  />
+		<br/> <br/>
+		<input type = "checkbox"  id = "js" /> JavaScript
+		<input type = "checkbox"  id = "ja"  />Java
+		<input type = "checkbox"  id = "py" />Python
+		<br/> <br/>
+		<input type = "submit"  style = "border-radius : 30px ;  width : 250px ; background-color : #F76FA5; color : white ;"/>
+	</form>
+	<h2 id = "msg" />
+	<script>
+		function show()
+		{
+			event.preventDefault();
+			let name = document.getElementById("name");
+			let js = document.getElementById("js");
+			let ja = document.getElementById("ja");
+			let py = document.getElementById("py");
+			let msg = document.getElementById("msg");
+
+			if (name.value.trim() == "")
+			{
+				alert("Enter name");
+				msg.innerHTML = "";
+				name.value = "";
+				name.focus();
+				return ;
+			}
+
+			let choice = "";
+			if (js.checked)		choice += "JavaScript ";
+			if (ja.checked)		choice += "Java ";
+			if (py.checked)	choice += "Python ";
+		
+
+			if (choice.length == 0)
+				choice = "Then Learn Something..";
+
+			let ans = "Name = " + name.value + " , " +  " Selected Language = " + choice ; 
+			msg.innerHTML = ans ; 
+
+		
+
+		}
+	</script>
+</center>
+</body>
+</html>
